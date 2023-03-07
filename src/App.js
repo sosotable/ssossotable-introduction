@@ -14,14 +14,21 @@ function App() {
       'https://github.com/sosotable/ssossotable',
       'https://github.com/sosotable/ssossotest',
       'https://github.com/sosotable/sovoro'
+    ],
+    contents: [
+        '음식 평가 정보를 기반으로 한 음식 추천, 식사 기록 기능을 제공',
+        '신학기 대학생들을 대상으로 한 음식 관련 테스트',
+        '등하교길 간편하게 영단어 공부가 가능한 단어장 어플리케이션'
     ]
   }
   const [ title, setTitle ] = useState('')
   const [ link, setLink ] = useState('')
+  const [ content, setContent ] = useState('')
   const handleMouseOver = (opt) => {
     btnOpenPopup(opt)
     setTitle(modal.titles[opt])
     setLink(modal.links[opt])
+    setContent(modal.contents[opt])
     setIsHovering(true);
   };
 
@@ -116,7 +123,10 @@ function App() {
             </ul>
           </div>
           <div className="modal" onClick={modalControl}>
-            <div className="modal_body"><a href={link} target='_blank'>{title}</a></div>
+            <div className="modal_body">
+              <a href={link} target='_blank'>{title}</a>
+              <p style={{fontSize: '14px'}}>{content}</p>
+            </div>
           </div>
         </header>
 
